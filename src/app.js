@@ -22,5 +22,5 @@ app.listen(app.get('port'), () => {
   console.log(`Server on port http://localhost:${app.get('port')}/`);
   sequelize.sync({force: true}).then(() => {
     console.log('Se ha establecido la conexión');
-  });
+  }).catch(res=> console.log(res));
 });
