@@ -5,6 +5,7 @@ const {sequelize} = require('./database/models/index');
 let indexRouter = require('./routes/index');
 let moviesRouter = require('./routes/movies');
 let charactersRouter = require('./routes/characters');
+let genreRouter = require('./routes/genre');
 
 app.set('port', process.env.PORT || 3000);
 
@@ -16,11 +17,16 @@ app.use(express.json());
 app.use('/', indexRouter);
 app.use('/api/movies', moviesRouter);
 app.use('/api/characters', charactersRouter);
+app.use('/api/genres', genreRouter);
 
 //start server
 app.listen(app.get('port'), () => {
-  console.log(`Server on port http://localhost:${app.get('port')}/`);
-  sequelize.sync({force: true}).then(() => {
-    console.log('Se ha establecido la conexión');
-  }).catch(res=> console.log(res));
+  
+  sequelize
+    .sync({force: false})
+    .then(() => {
+      console.log('Se ha establecido la conexión');
+      console.log(`Server on port http://localhost:${app.get('port')}/`);
+    })
+    .catch((res) => console.log(res));
 });
