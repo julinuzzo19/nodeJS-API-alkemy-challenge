@@ -1,5 +1,7 @@
 'use strict';
-const {Model} = require('sequelize');
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Character extends Model {
     /**
@@ -9,32 +11,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-
-      this.belongsToMany(models.Movie, {
-        through: 'movie_character',
-        timestamps: false
-      });
+      this.belongsToMany(models.Movie,{through:'movie_character',timestamps:false});
     }
-  }
-  Character.init(
-    {
-      characterId: {
-        primaryKey: true,
-        type: DataTypes.INTEGER,
-
-        autoIncrement: true
-      },
-      image: DataTypes.STRING,
-      name: DataTypes.STRING,
-      age: DataTypes.INTEGER,
-      weight: DataTypes.INTEGER,
-      history: DataTypes.STRING
-    },
-    {
-      sequelize,
-      modelName: 'Character',
-      timestamps: false
-    }
-  );
+  };
+  Character.init({
+    image: DataTypes.STRING,
+    name: DataTypes.STRING,
+    age: DataTypes.INTEGER,
+    weight: DataTypes.INTEGER,
+    history: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'Character',
+    timestamps: false
+  });
   return Character;
 };
