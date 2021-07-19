@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasMany(models.Character);
+      this.belongsToMany(models.Character,{through:'movie_character',timestamps:false});
       this.belongsTo(models.Genre);
     }
   }
