@@ -21,10 +21,10 @@ app.use('/api/genres', genreRouter);
 
 //start server
 app.listen(app.get('port'), () => {
-  
   sequelize
     .sync({force: false})
     .then(() => {
+      console.clear();
       console.log('Se ha establecido la conexión');
       console.log(`Server on port http://localhost:${app.get('port')}/`);
     })
