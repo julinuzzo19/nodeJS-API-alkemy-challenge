@@ -1,13 +1,15 @@
-const {sequelize, Character} = require('../database/models');
+const {Character} = require('../database/models');
 
 const characterController = {
   createCharacter: async (req, res) => {
+    const {image, name, age, weight, history} = req.body;
+
     const brad = await Character.create({
-      image: '2s',
-      name: 'Brad Pitt',
-      age: 59,
-      weight: 80,
-      history: 'brad story'
+      image,
+      name,
+      age,
+      weight,
+      history
     });
 
     return res.json(brad);
@@ -42,6 +44,18 @@ const characterController = {
     } else {
       res.status(404).send({message: 'Error to delete character.'});
     }
+  },
+
+  getCharacters: async (req, res) => {
+    const query = await Character.findAll();
+    let responseCharacter = [];
+    query.forEach((character) => {
+      let {image, name} = character;
+      let itemResponse = {image, name};
+      responseCharacter.push(itemResponse);
+    });
+
+    res.json(responseCharacter);
   }
 };
 

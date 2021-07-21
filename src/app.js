@@ -3,8 +3,8 @@ const app = express();
 const {sequelize} = require('./database/models/index');
 
 let indexRouter = require('./routes/index');
-let moviesRouter = require('./routes/movies');
-let charactersRouter = require('./routes/characters');
+let moviesRouter = require('./routes/movie');
+let charactersRouter = require('./routes/character');
 let genreRouter = require('./routes/genre');
 
 app.set('port', process.env.PORT || 3000);
