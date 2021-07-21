@@ -9,7 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsToMany(models.Character,{through:'movie_character',timestamps:false});
+      this.belongsToMany(models.Character, {
+        through: 'movie_character',
+        timestamps: false
+      });
       this.belongsTo(models.Genre);
     }
   }
@@ -17,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       image: DataTypes.STRING,
       title: DataTypes.STRING,
-      rating: DataTypes.INTEGER
+      rating: DataTypes.INTEGER,
+      ReleaseDate: DataTypes.INTEGER
     },
     {
       sequelize,

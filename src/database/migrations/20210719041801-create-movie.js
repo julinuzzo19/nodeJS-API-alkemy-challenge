@@ -16,6 +16,9 @@ module.exports = {
       },
       rating: {
         type: Sequelize.INTEGER
+      },
+      releaseDate: {
+        type: Sequelize.INTEGER
       }
     });
   },

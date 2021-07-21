@@ -42,6 +42,11 @@ const movieController = {
         message: 'Movie not deleted'
       });
     }
+  },
+
+  getMovies: (req, res) => {
+
+    
   }
 };
 
