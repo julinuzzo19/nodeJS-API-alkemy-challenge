@@ -1,5 +1,5 @@
-const {Character} = require('../database/models');
-
+const {Sequelize, Character} = require('../database/models');
+const Op = Sequelize.Op;
 const characterController = {
   createCharacter: async (req, res) => {
     const {image, name, age, weight, history} = req.body;
@@ -47,15 +47,49 @@ const characterController = {
   },
 
   getCharacters: async (req, res) => {
-    const query = await Character.findAll();
+    let {name, age, movies} = req.query;
+
+    let query;
+
+    if (name) {
+      query = await Character.findAll({
+        where: {
+          name: {
+            [Op.like]: `%${name}%`
+          }
+        }
+      });
+    } else if (age) {
+      query = await Character.findAll({
+        where: {
+          age
+        }
+      });
+    } else if (movies) {
+      query = await Character.findAll({
+        where: {
+          movies
+        }
+      });
+    } else {
+      query = await Character.findAll();
+    }
+
     let responseCharacter = [];
+
     query.forEach((character) => {
       let {image, name} = character;
       let itemResponse = {image, name};
       responseCharacter.push(itemResponse);
     });
 
-    res.json(responseCharacter);
+    if (query) {
+      res.status(200).json(responseCharacter);
+    } else {
+      res.status(404).send({
+        message: 'Characters not found'
+      });
+    }
   }
 };
 
