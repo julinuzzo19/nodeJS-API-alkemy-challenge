@@ -121,6 +121,27 @@
                 }
             },
             "indexes": []
+        },
+        "Users": {
+            "tableName": "Users",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "email": {
+                    "field": "email",
+                    "seqType": "Sequelize.STRING"
+                },
+                "password": {
+                    "field": "password",
+                    "seqType": "Sequelize.STRING"
+                }
+            },
+            "indexes": []
         }
     },
     "path": "C:\\Users\\Nuzzo\\Desktop\\Julian\\Proyectos\\Challenges\\nodeJS-API-alkemy-challenge\\src\\database\\migrations\\_current.json",
