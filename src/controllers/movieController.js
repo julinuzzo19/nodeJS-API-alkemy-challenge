@@ -1,5 +1,6 @@
 const {Movie, Character, Sequelize} = require('../database/models');
 
+
 const Op = Sequelize.Op;
 
 const movieController = {

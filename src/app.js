@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
 const {sequelize} = require('./database/models/index');
+require('dotenv').config();
 
-let indexRouter = require('./routes/index');
+let authRouter = require('./routes/auth');
 let moviesRouter = require('./routes/movie');
 let charactersRouter = require('./routes/character');
 let genreRouter = require('./routes/genre');
@@ -14,7 +15,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 //routes
-app.use('/', indexRouter);
+app.use('/api/', authRouter);
 app.use('/api/movies', moviesRouter);
 app.use('/api/characters', charactersRouter);
 app.use('/api/genres', genreRouter);

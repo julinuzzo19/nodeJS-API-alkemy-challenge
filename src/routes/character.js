@@ -1,11 +1,18 @@
 const {Router} = require('express');
-const characterController = require('../controllers/characterController');
+const {
+  createCharacter,
+  updateCharacter,
+  deleteCharacter,
+  getCharacterById,
+  getCharacters
+} = require('../controllers/characterController');
 const router = Router();
+const verifyToken = require('../middleware/verifyToken');
 
-router.post('/', characterController.createCharacter);
-router.put('/:id', characterController.updateCharacter);
-router.delete('/:id', characterController.deleteCharacter);
-router.get('/:id', characterController.getCharacterById);
-router.get('/:name?/:age?/:movies?', characterController.getCharacters);
+router.post('/', verifyToken, createCharacter);
+router.put('/:id', verifyToken, updateCharacter);
+router.delete('/:id', verifyToken, deleteCharacter);
+router.get('/:id', verifyToken, getCharacterById);
+router.get('/:name?/:age?/:movies?', verifyToken, getCharacters);
 
 module.exports = router;
