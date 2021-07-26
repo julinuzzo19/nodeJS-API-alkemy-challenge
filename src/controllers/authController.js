@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const {User} = require('../database/models');
+const sendMail = require('../sendgrid');
 
 const authController = {
   login: async (req, res) => {
@@ -31,6 +32,11 @@ const authController = {
     const userCreated = await User.create({email, password: dataEncrypted});
 
     if (userCreated) {
+      const data = {
+        to: email,
+        password
+      };
+      sendMail(data);
       res.status(201).json({
         message: 'User created'
       });
