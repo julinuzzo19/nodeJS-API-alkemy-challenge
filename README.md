@@ -1,6 +1,15 @@
 # nodeJS-API-alkemy-challenge
-CHALLENGE BACKEND - NodeJs
-🚀
+Dependencies:
+- Express
+- SendGrid
+- Sequelize
+- Jsonwebtoken
+- Bcrypt
+- Dotenv
+- Nodemon
+
+CHALLENGE BACKEND - NodeJs 🚀
+
 Objetivo
 Desarrollar una API para explorar el mundo de Disney, la cual permitirá conocer y modificar los
 personajes que lo componen y entender en qué películas estos participaron. Por otro lado, deberá
