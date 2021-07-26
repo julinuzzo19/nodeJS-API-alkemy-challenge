@@ -8,6 +8,11 @@ Dependencies:
 - Dotenv
 - Nodemon
 
+-For migration and seeds use:
+1-cd src/database/
+2-npx sequelize-cli db:migrate
+3-npx sequelize-cli db:seed:all
+
 CHALLENGE BACKEND - NodeJs 🚀
 
 Objetivo
