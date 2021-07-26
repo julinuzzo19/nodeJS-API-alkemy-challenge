@@ -29,5 +29,5 @@ app.listen(app.get('port'), () => {
       console.log('Se ha establecido la conexión');
       console.log(`Server on port http://localhost:${app.get('port')}/`);
     })
-    .catch((res) => console.log(res));
+    .catch((res) => console.error(res));
 });

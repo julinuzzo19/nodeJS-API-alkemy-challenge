@@ -53,7 +53,6 @@ const genreController = {
   },
   deleteGenre: async (req, res) => {
     const response = await Genre.destroy({where: {id: req.params.id}});
-    console.log(response);
     if (response) {
       res.status(200).send({message: 'Genre deleted!'});
     } else {

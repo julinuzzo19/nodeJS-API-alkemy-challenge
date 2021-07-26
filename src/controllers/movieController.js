@@ -47,7 +47,7 @@ const movieController = {
   },
 
   deleteMovie: async (req, res) => {
-    const response = await Movie.delete({where: {id: req.params.id}});
+    const response = await Movie.destroy({where: {id: req.params.id}});
     if (response) {
       res.status(200).send({message: 'Movie deleted'});
     } else {

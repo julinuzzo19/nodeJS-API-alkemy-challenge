@@ -7,10 +7,7 @@ const verifyToken = async (req, res, next) => {
 
     const decoded = jwt.verify(token, process.env.SECRET_KEY);
 
-    console.log(decoded);
-
     const user = await User.findByPk(decoded);
-    console.log(user);
     if (user) {
       next();
     } else res.status(404).json({message: 'user not found'});

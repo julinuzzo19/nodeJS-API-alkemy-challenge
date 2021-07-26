@@ -11,7 +11,7 @@ const authController = {
       where: {
         email: email
       }
-    }).catch((err) => console.log(err));
+    }).catch((err) => console.error(err));
 
     if (user) {
       const isEqual = await comparePassword(password, user.password);
