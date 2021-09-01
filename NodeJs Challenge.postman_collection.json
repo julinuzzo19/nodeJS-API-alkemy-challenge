@@ -343,6 +343,21 @@
 				{
 					"name": "Create Movie",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.MQ.s6TFX5Vx8eOLPRkHScYb2twiBoJ61PM803TP0jmEk6c",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -353,7 +368,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"image\":\"\",\r\n\"title\":\"\",\r\n\"rating\":10,\r\n\"release_year\":2021,\r\n\"GenreId\":100\r\n}"
+							"raw": "{\r\n\"image\":\"dwa\",\r\n\"title\":\"dwa\",\r\n\"rating\":10,\r\n\"release_year\":2021,\r\n\"GenreId\":101\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/movies/",
@@ -554,7 +569,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"\",\r\n    \"password\":\"\"\r\n\r\n}",
+							"raw": "{\r\n    \"email\":\"email@gmail.com\",\r\n    \"password\":\"password\"\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
