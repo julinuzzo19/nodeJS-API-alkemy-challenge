@@ -353,7 +353,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"image\":\"\",\r\n\"title\":\"\",\r\n\"rating\":10,\r\n\"release_year\":2021,\r\n\"GenreId\":100\r\n}"
+							"raw": "{\r\n\"image\":\"\",\r\n\"title\":\"\",\r\n\"rating\":10,\r\n\"release_year\":2021,\r\n\"Genre_id\":100\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/movies/",
@@ -477,7 +477,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"image\":\"\",\r\n\"title\":\"\",\r\n\"rating\":,\r\n\"release_year\":,\r\n\"GenreId\":\r\n}",
+							"raw": "{\r\n\"image\":\"\",\r\n\"title\":\"\",\r\n\"rating\":,\r\n\"release_year\":,\r\n\"Genre_id\":\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

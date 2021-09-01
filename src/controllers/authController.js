@@ -20,7 +20,7 @@ const authController = {
         const token = jwt.sign(user.id, process.env.SECRET_KEY);
         res.json({token});
       } else {
-        res.json({message: 'Los datos no coinciden'});
+        res.json({message: 'Wrong credentials'});
       }
     }
   },
@@ -41,7 +41,7 @@ const authController = {
         message: 'User created'
       });
     } else {
-      res.status(400).json({message: 'User has been not created'});
+      res.status(400).json({message: 'User not created'});
     }
   }
 };

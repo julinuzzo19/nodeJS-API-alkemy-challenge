@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.belongsToMany(models.Character, {
-        through: 'movie_characters',
+        through: 'movie_character',
         as: 'characters',
         timestamps: false
       });

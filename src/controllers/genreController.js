@@ -12,7 +12,7 @@ const genreController = {
     if (response) {
       res.status(201).json({status: 'sucess', message: 'Genre created!', response});
     } else {
-      res.status(400).json({status: 400, message: 'Genre has not been created'});
+      res.status(400).json({status: 400, message: 'Genre not created'});
     }
   },
 
@@ -48,7 +48,7 @@ const genreController = {
     if (response) {
       res.status(200).send({message: 'Genre Updated!'});
     } else {
-      res.status(400).send({message: 'Genre has not been updated'});
+      res.status(400).send({message: 'Genre not updated'});
     }
   },
   deleteGenre: async (req, res) => {
@@ -56,7 +56,7 @@ const genreController = {
     if (response) {
       res.status(200).send({message: 'Genre deleted!'});
     } else {
-      res.status(404).send({message: 'Genre has not been deleted.'});
+      res.status(404).send({message: 'Genre not deleted.'});
     }
   }
 };

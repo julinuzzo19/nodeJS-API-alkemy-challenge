@@ -1,17 +1,16 @@
 const {Movie, Character, Sequelize} = require('../database/models');
 
-
 const Op = Sequelize.Op;
 
 const movieController = {
   createMovie: async (req, res) => {
-    const {image, title, rating, GenreId, release_year, characters} = req.body;
+    const {image, title, rating, Genre_id, release_year, characters} = req.body;
 
     const response = await Movie.create({
       image,
       title,
       rating,
-      GenreId,
+      Genre_id,
       release_year
     });
 
@@ -23,16 +22,16 @@ const movieController = {
       res.status(201).send({message: 'Movie created'});
     } else {
       res.status(400).send({
-        message: 'Movie has not been created'
+        message: 'Movie not created'
       });
     }
   },
 
   updateMovie: async (req, res) => {
-    const {image, title, rating, GenreId, release_year} = req.body;
+    const {image, title, rating, Genre_id, release_year} = req.body;
 
     const response = await Movie.update(
-      {image, title, rating, GenreId, release_year},
+      {image, title, rating, Genre_id, release_year},
       {
         where: {id: req.params.id}
       }
@@ -41,7 +40,7 @@ const movieController = {
       res.status(200).send({message: 'Movie updated'});
     } else {
       res.status(400).send({
-        message: 'Movie has not been updated'
+        message: 'Movie not updated'
       });
     }
   },
@@ -52,7 +51,7 @@ const movieController = {
       res.status(200).send({message: 'Movie deleted'});
     } else {
       res.status(400).send({
-        message: 'Movie has not been deleted'
+        message: 'Movie not deleted'
       });
     }
   },
@@ -74,7 +73,7 @@ const movieController = {
     } else if (query.genre) {
       responseMovie = await Movie.findAll({
         where: {
-          GenreId: query.genre
+          Genre_id: query.genre
         }
       });
     } else if (query.order) {
