@@ -7,11 +7,11 @@ Dependencies:
 - Bcrypt
 - Dotenv
 - Nodemon
+- Pg (Postgres)
 
 -For migration and seeds use:
-1-cd src/database/
-2-npx sequelize-cli db:migrate
-3-npx sequelize-cli db:seed:all
+-npm run migrate
+-npm run seed
 
 CHALLENGE BACKEND - NodeJs 🚀
 
