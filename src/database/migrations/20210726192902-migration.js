@@ -31,7 +31,7 @@ module.exports = {
       title: Sequelize.STRING,
       rating: Sequelize.INTEGER,
       release_year: Sequelize.INTEGER,
-      Genre_id: {
+      GenreId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Genres',

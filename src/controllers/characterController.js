@@ -114,7 +114,7 @@ const characterController = {
         {
           model: Movie,
           as: 'movies',
-          attributes: {exclude: ['Genre_id']},
+          attributes: {exclude: ['GenreId']},
           through: {
             attributes: []
           },

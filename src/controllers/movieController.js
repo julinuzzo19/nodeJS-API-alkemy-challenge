@@ -4,13 +4,13 @@ const Op = Sequelize.Op;
 
 const movieController = {
   createMovie: async (req, res) => {
-    const {image, title, rating, Genre_id, release_year, characters} = req.body;
+    const {image, title, rating, GenreId, release_year, characters} = req.body;
 
     const response = await Movie.create({
       image,
       title,
       rating,
-      Genre_id,
+      GenreId,
       release_year
     });
 
@@ -28,10 +28,10 @@ const movieController = {
   },
 
   updateMovie: async (req, res) => {
-    const {image, title, rating, Genre_id, release_year} = req.body;
+    const {image, title, rating, GenreId, release_year} = req.body;
 
     const response = await Movie.update(
-      {image, title, rating, Genre_id, release_year},
+      {image, title, rating, GenreId, release_year},
       {
         where: {id: req.params.id}
       }
@@ -73,7 +73,7 @@ const movieController = {
     } else if (query.genre) {
       responseMovie = await Movie.findAll({
         where: {
-          Genre_id: query.genre
+          GenreId: query.genre
         }
       });
     } else if (query.order) {
