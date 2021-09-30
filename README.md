@@ -9,10 +9,6 @@ Dependencies:
 - Nodemon
 - Pg (Postgres)
 
--For migration and seeds use:
--npm run migrate
--npm run seed
-
 CHALLENGE BACKEND - NodeJs 🚀
 
 Objetivo
