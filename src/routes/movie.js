@@ -1,5 +1,6 @@
 const {Router} = require('express');
 const router = Router();
+const verifyToken = require('../middleware/verifyToken');
 const {
   createMovie,
   updateMovie,
@@ -7,7 +8,6 @@ const {
   getMovieById,
   getMovies
 } = require('../controllers/movieController');
-const verifyToken = require('../middleware/verifyToken');
 
 router.post('/', verifyToken, createMovie);
 router.put('/:id', verifyToken, updateMovie);

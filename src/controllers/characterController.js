@@ -1,4 +1,7 @@
-const {Sequelize, Character, Movie, Genre} = require('../database/models');
+const {Sequelize} = require('sequelize');
+const Movie = require('../database/models/movie');
+const Character = require('../database/models/character');
+const Genre = require('../database/models/genre');
 const Op = Sequelize.Op;
 const characterController = {
   createCharacter: async (req, res) => {
@@ -80,7 +83,6 @@ const characterController = {
         include: [
           {
             model: Movie,
-            as: 'movies',
             through: {
               attributes: []
             },
@@ -113,7 +115,6 @@ const characterController = {
       include: [
         {
           model: Movie,
-          as: 'movies',
           attributes: {exclude: ['GenreId']},
           through: {
             attributes: []

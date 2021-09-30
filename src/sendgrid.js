@@ -16,11 +16,9 @@ const sendMail = (data) => {
     <h5>Password: ${password}</h5> 
     `
   };
-  sgMail
-    .send(msg)
-    .catch((error) => {
-      console.error(error);
-    });
+  sgMail.send(msg).catch((error) => {
+    console.error(error);
+  });
 };
 
 module.exports = sendMail;

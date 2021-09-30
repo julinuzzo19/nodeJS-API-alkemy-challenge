@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const {User} = require('../database/models');
+const User = require('../database/models/user');
 const sendMail = require('../sendgrid');
 
 const authController = {

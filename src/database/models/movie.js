@@ -1,34 +1,21 @@
-'use strict';
-const {Model} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class Movie extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-      this.belongsToMany(models.Character, {
-        through: 'movie_character',
-        as: 'characters',
-        timestamps: false
-      });
-      this.belongsTo(models.Genre);
-    }
-  }
-  Movie.init(
-    {
-      image: DataTypes.STRING,
-      title: DataTypes.STRING,
-      rating: DataTypes.INTEGER,
-      release_year: DataTypes.INTEGER
-    },
-    {
-      sequelize,
-      modelName: 'Movie',
-      timestamps: false
-    }
-  );
-  return Movie;
-};
+const {Sequelize} = require('sequelize');
+
+const db = require('../config/db');
+const Character = require('./character');
+const Genre = require('./genre');
+
+const Movie = db.define('Movie', {
+  id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
+  title: Sequelize.STRING,
+  image: Sequelize.STRING,
+  release_year: Sequelize.INTEGER,
+  rating: Sequelize.INTEGER
+});
+
+//relations
+Movie.belongsToMany(Character, {through: 'movie_character'});
+Character.belongsToMany(Movie, {through: 'movie_character'});
+Movie.belongsTo(Genre);
+Genre.hasMany(Movie);
+
+module.exports = Movie;

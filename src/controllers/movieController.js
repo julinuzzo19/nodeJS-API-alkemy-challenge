@@ -1,4 +1,6 @@
-const {Movie, Character, Sequelize} = require('../database/models');
+const {Sequelize} = require('sequelize');
+const Movie = require('../database/models/movie');
+const Character = require('../database/models/character');
 
 const Op = Sequelize.Op;
 
@@ -94,7 +96,6 @@ const movieController = {
       include: [
         {
           model: Character,
-          as: 'characters',
           attributes: ['name', 'image'],
           through: {
             attributes: []

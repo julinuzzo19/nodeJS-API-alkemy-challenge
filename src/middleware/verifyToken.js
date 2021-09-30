@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const {User} = require('../database/models');
+const User = require('../database/models/user');
 const verifyToken = async (req, res, next) => {
   try {
     const tokenReceived = req.headers['authorization'];
@@ -10,7 +10,7 @@ const verifyToken = async (req, res, next) => {
     const user = await User.findByPk(decoded);
     if (user) {
       next();
-    } else res.status(404).json({message: 'user not found'});
+    } else res.status(404).json({message: 'User not found'});
   } catch (error) {
     res.status(403).json({message: 'Token must provided', error});
   }

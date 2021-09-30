@@ -296,7 +296,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{    \r\n    \"image\": \"\",\r\n    \"name\": \"\",\r\n    \"age\":,\r\n    \"weight\": ,\r\n    \"history\": \"\"\r\n}"
+							"raw": "{    \r\n    \"image\": \"\",\r\n    \"name\": \"\",\r\n    \"age\":42,\r\n    \"weight\":90 ,\r\n    \"history\": \"\"\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/characters/100",
@@ -392,6 +392,21 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
